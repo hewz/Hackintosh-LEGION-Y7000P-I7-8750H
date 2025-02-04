@@ -1,10 +1,10 @@
 # Hackintosh-LEGION-Y7000P-I7-8750H  
 > 联想拯救者 Y7000P I7-8750H  准完美级 EFI
 > 
-> 镜像系统版本为 macOS Monterey 12.1 21C52
+> 镜像系统版本为 macOS Monterey 12.7.6
 
-在 [gclm](https://github.com/gclm/Hackintosh-LEGION-Y7000P-I7-9750H) 
-提供的EFI上针对自己的机型做了修改，该OC引导无法使本机型内置键盘生效，经修复已正常使用。 
+fork源中的 EFI无法启动，从 [gclm](https://github.com/gclm/Hackintosh-LEGION-Y7000P-I7-9750H) 提供的EFI上针对自己的机型做了修改，经修复已正常使用。 
+OC 升级到 1.0.3
 
 ## 电脑配置 
 
@@ -36,7 +36,6 @@
 - CPU变频
 - 支持休眠唤醒（hibernatemode 25）
 - 睡眠唤醒（鼠标，键盘、电源键唤醒均正常）
-- 随航（有线/无线）
 - 电池状态
 - 内置摄像头
 - iMessage/FaceTime
@@ -46,9 +45,9 @@
 - MAC系统更新
 
 ## 不能正常使用的功能
+- 随航（有线/无线） #20250204 实测无法不换网卡无法使用
 - 外接显示器 ，因为HDMI 端口连接到已禁用的Nvidia卡。
 - Airdrop，无线网卡硬件暂不支持。可更换白果卡BCM94360系列网卡。 
-- 注: 使用`RGB多彩背光键盘`容易在使用过程中，出现全部USB端口失灵现象。(关闭键盘RGB灯光即可)
 
 # 更换硬件之后能够正常使用的功能
 - 更换无线网卡BCM94360Z3， Handoff、Airdrop、IWatch解锁均正常。
@@ -56,33 +55,18 @@
 
 
 ## 修复记录
-- 笔记本内置键盘失灵修复：
+- WiFi 无法使用：
+	禁用IO80211FamilyLegacy和IOSkywalkFamily
 
-	由于keys中VoodooPS2Controller 和 VoodooI2C其中一个无法使内置键盘功能生效， 而同时加载这两项又会引发冲突，导致无法开机使用。
-  	
-	解决方法：使用OpenCore configurator，编辑kernel内核设置即可，按照如下配置即可。
-  	
-	注意： 配置的加载顺序不对也会导致出现问题，可参考如题的加载顺序
-	![image](image/voodoo.png)
-  	即配置表中去除如下三个选项即可。
-  ```
-  VoodooI2C.kext/Contents/PlugIns/VoodooInput.kext
-  VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Mouse.kext
-  VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext
-  ```
 - 小键盘修复：
 	ACPI增加文件 SSDT-NumLock.aml
 
 
 ## 致谢
 
-感谢 [国光](https://apple.sqlsec.com/) 提供的详细教程	 
-
-感谢 [黑果小兵](https://blog.daliansky.net/) 提供的镜像文件及安装工具	 
-
 感谢 [gclm](https://github.com/gclm/Hackintosh-LEGION-Y7000P-I7-9750H) 提供的绝大部分核心驱动 	
 
-感谢 [xiaoM](https://github.com/xiaoMGitHub/LEGION_Y7000Series_Hackintosh/releases) 提供的键盘修复方案
+感谢 [xiaoM](https://github.com/xiaoMGitHub/LEGION_Y7000Series_Hackintosh/releases) 提供的键盘修复方案ß
 
 
 
