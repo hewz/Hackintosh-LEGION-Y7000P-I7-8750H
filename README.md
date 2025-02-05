@@ -1,13 +1,11 @@
 # Hackintosh-LEGION-Y7000P-I7-8750H  
-> 联想拯救者 Y7000P I7-8750H  准完美级 EFI
-> 
+> 联想拯救者 Y7000P I7-8750H 准完美级 EFI
 > 镜像系统版本为 macOS Monterey 12.7.6
 
 fork源中的 EFI无法启动，从 [gclm](https://github.com/gclm/Hackintosh-LEGION-Y7000P-I7-9750H) 提供的EFI上针对自己的机型做了修改，经修复已正常使用。 
 OC 升级到 1.0.3
 
 ## 电脑配置 
-
 ```
 电脑型号		联想 Lenovo 拯救者 Y7000P-1060 笔记本电脑
 处理器		英特尔 Core i7-8750H @ 2.20GHz 六核
@@ -45,14 +43,8 @@ OC 升级到 1.0.3
 - MAC系统更新
 
 ## 不能正常使用的功能
-- 随航（有线/无线） #20250204 实测无法不换网卡无法使用
-- 外接显示器 ，因为HDMI 端口连接到已禁用的Nvidia卡。
-- Airdrop，无线网卡硬件暂不支持。可更换白果卡BCM94360系列网卡。 
-
-# 更换硬件之后能够正常使用的功能
-- 更换无线网卡BCM94360Z3， Handoff、Airdrop、IWatch解锁均正常。
-- Thinkpad Pro dock 专业桌面扩展坞 型号40A70045CN, [黑苹果与m1外接显示器廉价方案](https://zhuanlan.zhihu.com/p/355895597) 外接显示器正常。
-
+- 随航（有线/无线）、Airdrop等无线网卡依赖功能，实测无法不换网卡无法使用，可更换白果卡BCM94360系列网卡
+- 外接显示器 ，因为HDMI 端口连接到已禁用的Nvidia卡，可选用DisplayLink产品
 
 ## 修复记录
 - WiFi 无法使用：
